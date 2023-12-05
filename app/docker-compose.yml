@@ -1,0 +1,22 @@
+version: '3'
+services:
+  main:
+    build:
+      context: ./main
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    networks:
+      - minha_rede
+
+  consumidor:
+    build:
+      context: ./consumidor
+      dockerfile: Dockerfile
+    depends_on:
+      - main
+    networks:
+      - minha_rede
+
+networks:
+  minha_rede:
