@@ -1,5 +1,4 @@
 import requests
-import pandas as pd
 
 response = requests.get("http://main:5000/media")
 mean = response.json()
